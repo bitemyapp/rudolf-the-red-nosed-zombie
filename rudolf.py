@@ -799,7 +799,7 @@ class ColorOutputPlugin(nose.plugins.Plugin):
         result.__start_time = time.time()
         try:
             WritelnDecorator = unittest._WritelnDecorator
-        except:
+        except AttributeError:
             WritelnDecorator = unittest.runner._WritelnDecorator # Python 2.7
         result.stream = WritelnDecorator(open(os.devnull, 'w'))
         self._result = result
